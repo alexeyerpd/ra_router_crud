@@ -1,8 +1,9 @@
-class Client {
+class AppClient {
     static backend = 'http://localhost:7070';
 
+    constructor() {}
+
     toJson(response: Response) {
-        console.log(response);
         if (response.status === 204) {
             return response;
         }
@@ -18,7 +19,7 @@ class Client {
     }
 
     request(url: string, options: RequestInit = {}) {
-        return fetch(`${Client.backend}${url}`, options).then(this.checkStatus).then(this.toJson);
+        return fetch(`${AppClient.backend}${url}`, options).then(this.checkStatus).then(this.toJson);
     }
 
     get<ResponseType>(url: string): Promise<ResponseType> {
@@ -40,4 +41,4 @@ class Client {
     }
 }
 
-export const client = new Client();
+export const client = new AppClient();

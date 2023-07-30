@@ -14,11 +14,19 @@ interface PostProps {
 
 export function Post({data, onRemove}: PostProps) {
     return (
-        <Link className={block()} to={`/posts/${data.id}`}>
-            <Button view="danger" className={block('btn-remove')} onClick={() => onRemove(data.id)}>
+        <div className={block()}>
+            <Link className={block('link')} to={`/posts/${data.id}`}>
+                <div>{data.content}</div>
+            </Link>
+
+            <Button
+                type="button"
+                view="danger"
+                className={block('btn-remove')}
+                onClick={() => onRemove(data.id)}
+            >
                 X
             </Button>
-            <div>{data.content}</div>
-        </Link>
+        </div>
     );
 }

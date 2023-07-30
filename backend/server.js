@@ -32,7 +32,15 @@ app.get('/posts/:id', (req, res) => {
 
 app.post('/posts', (req, res) => {
     const postId = nextId++;
-    posts.push({...req.body, id: postId, created: Date.now()});
+
+    if (req.body.id === undefined) {
+        posts.push({...req.body, id: postId, created: Date.now()});
+    } else {
+        const post = posts.find((o) => o.id === req.body.id);
+        if (post) {
+            post.content = req.body.content;
+        }
+    }
     res.status(200);
     res.send(JSON.stringify({id: postId}));
 });

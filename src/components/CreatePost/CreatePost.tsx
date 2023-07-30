@@ -28,7 +28,7 @@ export function CreatePost() {
                 onSubmit={(e) => {
                     e.preventDefault();
                     if (content) {
-                        frontend.createPost<{id: number}>({id: 0, content}).then((res) => {
+                        frontend.createPost<{id: number}>({content}).then((res) => {
                             setStorageValue('content', '');
                             navigate(`/posts/${res.id}`);
                         });
