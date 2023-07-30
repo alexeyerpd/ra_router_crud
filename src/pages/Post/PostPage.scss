@@ -1,0 +1,15 @@
+@use 'styles/variables';
+
+$block: '.#{variables.$ns}post-page';
+
+#{$block} {
+    display: grid;
+    gap: 30px;
+
+    &__post {
+        padding: 30px;
+
+        background-color: #fff;
+        border-radius: 8px;
+    }
+}

@@ -1,0 +1,8 @@
+@use 'styles/variables';
+
+$block: '.#{variables.$ns}posts-page';
+
+#{$block} {
+    display: grid;
+    gap: 30px;
+}

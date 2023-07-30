@@ -4,6 +4,7 @@ import * as dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
 import {createRoot} from 'react-dom/client';
+import {BrowserRouter} from 'react-router-dom';
 import {getRootContainer} from 'utils/helpers';
 
 import './styles/root.scss';
@@ -15,6 +16,8 @@ const root = createRoot(getRootContainer());
 
 root.render(
     <React.StrictMode>
-        <App />
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
     </React.StrictMode>,
 );
